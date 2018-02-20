@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127064806) do
+ActiveRecord::Schema.define(version: 20180210173205) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
@@ -18,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180127064806) do
     t.string "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_areas", force: :cascade do |t|
+    t.string "name"
+    t.string "incharge"
+    t.integer "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_sub_areas_on_area_id"
   end
 
 end

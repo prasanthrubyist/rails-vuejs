@@ -1,0 +1,7 @@
+<%= content_tag :div, 
+  id: "area-form",
+  data: {
+    area: area.to_json,
+    sub_areas_attributes: area.sub_areas.to_json,
+  }do %>
+<% end %>

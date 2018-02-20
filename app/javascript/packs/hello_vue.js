@@ -5,20 +5,26 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import App from '../app.vue'
-import TurbolinksAdapter from 'vue-turbolinks'
-document.addEventListener('turbolinks:load', () => {
-   var el = document.body.appendChild(document.createElement('hello'))
-    if (el != null){
-	 var app = new Vue({
-	    el,
-	    render: h => h(App),
-	  })
+// import Vue from 'vue'
+// import App from '../app.vue'
+// import TurbolinksAdapter from 'vue-turbolinks'
+// document.addEventListener('turbolinks:load', () => {
+//    var el = document.body.appendChild(document.createElement('hello'))
+//     if (el != null){
+// 	 var app = new Vue({
+// 	    el,
+// 	    render: h => h(App),
+// 	  })
 
-	  console.log(app)
-    }
-})
+// 	  console.log(app)
+//     }
+// })
+
+//For nested form ex
+
+import Vue from 'vue/dist/vue.esm'
+import TurbolinksAdapter from 'vue-turbolinks'
+import VueResource from 'vue-resource'
 
 
 // The above code uses Vue without the compiler, which means you cannot

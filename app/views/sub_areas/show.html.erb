@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sub_area.name %>
+</p>
+
+<p>
+  <strong>Incharge:</strong>
+  <%= @sub_area.incharge %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @sub_area.area %>
+</p>
+
+<%= link_to 'Edit', edit_sub_area_path(@sub_area) %> |
+<%= link_to 'Back', sub_areas_path %>
