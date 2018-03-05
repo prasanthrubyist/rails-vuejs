@@ -1,7 +1,30 @@
 <%= content_tag :div, 
   id: "area-form",
   data: {
-    area: area.to_json,
-    sub_areas_attributes: area.sub_areas.to_json,
+  	id: area.id,
+    area: area.to_json(except: [:id, :created_at, :updated_at]),
+    sub_areas_attributes: area.sub_areas.to_json(except: [:area_id, :created_at, :updated_at]),
   }do %>
+
+  <label>Area Name</label>
+  <input type="text" v-model="area.name" />
+
+  <h4>Sub areas</h4>
+  <div v-for="(sub_area, index) in area.sub_areas_attributes">
+    <div v-if="sub_area._destroy == '1'">
+      {{ sub_area.name }} will be removed. <button v-on:click="undoRemove(index)">Undo</button>
+    </div>
+    <div v-else>
+      <label>Sub Area Name</label>
+      <input type="text" v-model="sub_area.name" />
+      <button v-on:click="removeSubArea(index)">Remove</button>
+    </div>
+
+    <hr />
+  </div>
+
+  <button v-on:click="addSubArea">Add Sub Area</button>
+
+  <br />
+  <button v-on:click="saveTeam">Save Area</button>
 <% end %>

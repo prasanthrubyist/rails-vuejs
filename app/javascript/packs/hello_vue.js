@@ -26,7 +26,53 @@ import Vue from 'vue/dist/vue.esm'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueResource from 'vue-resource'
 
+document.addEventListener('turbolinks:load', () => {
+	// Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+	var element = document.getElementById("area-form")
+	if (element != null) {
+		var id = element.dataset.id
+    var area = JSON.parse(element.dataset.area)
+    var sub_areas_attributes = JSON.parse(element.dataset.sub_areasAttributes)
+    sub_areas_attributes.forEach(function(sub_area) { sub_area._destroy = null })
+    area.sub_areas_attributes = sub_areas_attributes
 
+    var app = new Vue({
+    	el: element,
+    	mixins: [TurbolinksAdapter],
+    	data: function(){
+    		return {id: id, area: area}
+    	},
+    	methods: {
+    		addSubArea: function() {
+          this.area.sub_areas_attributes.push({
+          	id: null,
+          	name: "",
+          	_destroy: null
+          })
+    		},
+
+    		removeSubArea: function(){
+    			var sub_area = this.area.sub_areas_attributes[index]
+    			if(sub_area.id == null){
+    				this.area.sub_areas_attributes.splice(index, 1)
+
+    			}else{
+    				this.area.sub_areas_attributes[index]._destroy = "1"
+    			}
+    		}
+
+    		// saveArea: function(){
+    		// 	//create new area
+    		// 	if(this.id == null){
+    		// 		this.$http.post('/areas', {area: this.area}).then(response => {
+    		// 			Turbolinks.visit('/areas/${response.body.id}')
+    		// 		}
+    		// 	}
+    		// }
+    	}
+    })
+	}
+})
 // The above code uses Vue without the compiler, which means you cannot
 // use Vue to target elements in your existing html templates. You would
 // need to always use single file components.
