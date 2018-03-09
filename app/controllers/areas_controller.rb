@@ -24,7 +24,8 @@ class AreasController < ApplicationController
   # POST /areas
   # POST /areas.json
   def create
-    @area = Area.new(area_params)
+    p "#{params[:image]}============================image"
+    @area = Area.new(image: params[:image], name: params[:name])
 
     respond_to do |format|
       if @area.save
@@ -69,6 +70,6 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.require(:area).permit(:name, sub_areas_attributes: [:id, :name, :incharge, :_destroy])
+      params.require(:area).permit(:name,:image, sub_areas_attributes: [:id, :name, :incharge, :_destroy])
     end
 end
