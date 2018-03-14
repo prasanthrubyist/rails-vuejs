@@ -8,7 +8,8 @@
     "vue-picture-input": "^2.1.1",
     "vue-resource": "^1.3.6",
     "vue-template-compiler": "^2.5.13",
-    "vue-turbolinks": "^2.0.1"
+    "vue-turbolinks": "^2.0.1",
+    "vuesax": "^2.0.49"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"

@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require vuesax/dist/vuesax
 //= require_tree .

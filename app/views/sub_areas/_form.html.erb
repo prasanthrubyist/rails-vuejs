@@ -1,32 +1,7 @@
-<%= form_with(model: sub_area, local: true) do |form| %>
-  <% if sub_area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sub_area.errors.count, "error") %> prohibited this sub_area from being saved:</h2>
 
-      <ul>
-      <% sub_area.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :sub_area_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :incharge %>
-    <%= form.text_field :incharge, id: :sub_area_incharge %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area_id %>
-    <%= form.text_field :area_id, id: :sub_area_area_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= content_tag :div,
+  id: "vue-app",
+  data: {
+  } do %>
+   <vs-button vs-type="primary-border">Hey</vs-button>
+<% end %>    
