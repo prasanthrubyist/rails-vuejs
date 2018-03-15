@@ -24,8 +24,8 @@ class AreasController < ApplicationController
   # POST /areas
   # POST /areas.json
   def create
-    p "#{params[:image]}============================image"
-    @area = Area.new(image: params[:image], name: params[:name])
+    # p "#{params[:image]}============================image"
+    @area = Area.new(image: params[:image])
 
     respond_to do |format|
       if @area.save

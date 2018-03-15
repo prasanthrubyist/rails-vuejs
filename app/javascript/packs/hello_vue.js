@@ -51,11 +51,13 @@ document.addEventListener('turbolinks:load', () => {
                 saveArea: function() {
                   // Create a new area
                   if (this.id == null) {
-                    var form = new FormData()
-                    form.append('image', this.image);
-                    form.append('area', this.area);
-                    alert(JSON.stringify(form));
-                    this.$http.post('/areas',form, {emulateJSON: true }).then(response => {
+                    var options = { emulateJSON: true };
+
+                    var formData = new FormData()
+                    formData.append('image',this.image);
+                    formData.append('area', this.area);
+                    alert(JSON.stringify(formData));
+                    this.$http.post('/areas',formData,options).then(response => {
                       Turbolinks.visit(`/areas/${response.body.id}`)
                     }, response => {
                       console.log(response)

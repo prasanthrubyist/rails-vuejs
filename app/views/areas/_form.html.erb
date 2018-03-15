@@ -8,7 +8,7 @@
 
   <label>Area Name</label>
   <input type="text" v-model="area.name" />
-    <template>
+    <!-- <template>
       <div class="hello">    
         <picture-input 
           ref="pictureInput" 
@@ -25,7 +25,9 @@
           }" v-model="area.image">
         </picture-input>
       </div>
-    </template>
+    </template> -->
+      <input type="file" name="file" >
+
   <h4>Sub Area</h4>
   <div v-for="(sub_area, index) in area.sub_areas_attributes">
     <div v-if="sub_area._destroy == '1'">
