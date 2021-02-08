@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "paperclip"
 gem 'mini_magick' # For different versions of an image
 group :development, :test do
